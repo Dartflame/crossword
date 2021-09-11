@@ -71,9 +71,11 @@ public  class Crossword {
 
     //основной метод по нахождению слова
     public static Word detectWord(String s) throws Exception {
+
         Word word = new Word(s);
         startPoint = new Point(clone[1][1],1,1);
         Point prev = null;
+
         for (int i = wordRoute.size(); i < word.getText().length(); ) {
             if (i == 0) {
                 Point zero = detectLetter(null, s.charAt(0));
@@ -106,14 +108,16 @@ public  class Crossword {
         return word;
     }
 
-    //метод проверяет наличие переданного в качестве аргумента символа в завимимости от стартовая ли это буква или нет
+    //метод проверяет наличие переданного в качестве аргумента символа в завимимости от того стартовая ли это буква или нет
     static Point detectLetter(Point prev, char letter) throws Exception {
         Point result = null;
         if (prev == null) {
             for (int i = startPoint.x; i < clone.length; i++) {
+
                 int k = 0;
                 if(i == startPoint.x)
                     k = startPoint.y;
+
                 for (int j = k; j < clone[i].length; j++) {
                     if (letter == clone[i][j]) {
                         result = new Point(clone[i][j], i, j);
