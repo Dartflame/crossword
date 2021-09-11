@@ -14,7 +14,7 @@ public  class Crossword {
     public static void main(String[] args) {
         List<Word> list = null;
         try {
-            list = detectAllWords("reeolm");
+            list = detectAllWords("mlop");
             for(Word word : list)
                 System.out.println(word);
         } catch (Exception e) {
@@ -93,6 +93,7 @@ public  class Crossword {
                 }
                 else {
                     wordRoute.add(point);
+                    map.get(point).remove(prev);
                     i = wordRoute.size();
                 }
             }
